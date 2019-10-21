@@ -1,93 +1,904 @@
+
+<!DOCTYPE html>
+<html dir='ltr' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
+<link href='https://www.blogger.com/static/v1/widgets/2549344219-widget_css_bundle.css' rel='stylesheet' type='text/css'/>
+<meta charset='utf-8'/>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<meta content='text/html; charset=utf-8' http-equiv='Content-Type'/>
+<meta content='width=device-width, initial-scale = 1.0, user-scalable = no' name='viewport'/>
+<link href="//fonts.googleapis.com/css?family=Josefin+Sans:600,700%7CDamion" rel="stylesheet" type="text/css">
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<meta content='blogger' name='generator'/>
+<link href='https://c4k60.blogspot.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='https://c4k60.blogspot.com/' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="C4K60 - Atom" href="https://c4k60.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="C4K60 - RSS" href="https://c4k60.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="C4K60 - Atom" href="https://www.blogger.com/feeds/8152930394054794091/posts/default" />
+<link rel="me" href="https://www.blogger.com/profile/02354055521114731558" />
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<meta content='https://c4k60.blogspot.com/' property='og:url'/>
+<meta content='C4K60' property='og:title'/>
+<meta content='Chuyên Nga THPT Chuyên Biên Hoà' property='og:description'/>
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet'/>
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
 <!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="https://kit.fontawesome.com/5468db3c8c.js" crossorigin="anonymous"></script>
-<title>Xung kích THPT Chuyên Biên Hoà</title>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<link crossorigin='anonymous' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' rel='stylesheet'/>
+<script>
+//<![CDATA[
+(function($){
+
+	$.fn.chocolate = function(args) {
+
+		// Default Options
+		var options = $.extend({
+			interval 	: 3000,
+			speed 		: 1000
+		}, args);
+
+		return this.each(function() {
+			
+			var original = $(this);
+
+			// Create element
+			$div = $(document.createElement('div'));
+			$div.css({
+				position 	: 'absolute',
+				zIndex 		: 0,
+				overflow 	: 'hidden',
+			});
+
+			original.prepend($div);
+		    $div.css(copybackground());
+		    $div.css('background-image', 'url(' + args.images[0] + ')');
+			
+			// This element background none
+			original.css('background', 'none');
+		    
+		    // Clone bg element
+		    $div2 = $div.clone();
+		    $div.after($div2);
+			
+			// Set postion
+			$div.css(copyPosition());
+			$div2.css(copyPosition());
+
+			// Resize window
+			$(window).resize(function() {
+				$div.css(copyPosition());
+				$div2.css(copyPosition());
+			});
+
+			// Copy background style
+			function copybackground() {
+				var backgroundProperties = [
+		        	'Attachment', 'Color', 'Repeat',
+		        	'Position', 'Size', 'Clip', 'Origin'
+		    		];
+			    var prop,
+			    	copyStyle 			= {},
+			    	i 					= 0;
+
+			    for (; i < backgroundProperties.length; i++) {
+			    	prop = 'background' + backgroundProperties[i];
+			    	copyStyle[prop] = original.css(prop);
+			    }
+
+			    return copyStyle;
+			}
+
+			// Copy position style
+		    function copyPosition() {
+		    	var corners 	= ['Top', 'Right', 'Bottom', 'Left'];
+			    var i 			= 0,
+			    	position 	= original.position(),
+			    	copyStyle 	= {
+			    		top 	: position.top,
+			    		left 	: position.left,
+			    		width 	: original.innerWidth(),
+			    		height 	: original.innerHeight()
+			    	};
+
+			    for (; i < corners.length; i++) {
+		    		corner = corners[i];
+		    		copyStyle['margin' + corner] = original.css('margin' + corner);
+		    		copyStyle['border' + corner] = original.css('border' + corner);
+		    	}
+
+		    	return copyStyle;
+		    }
+
+		    var count 	= 0,
+		    	current = 0;
+
+			// Change background function
+			var slide = function() {
+				if (current == args.images.length - 1) current = 0;
+				else current++;
+				
+				if (count == 0) {
+					$div2.fadeOut(options.speed);
+					$div.css('background-image', 'url(' + args.images[current] + ')').fadeIn(options.speed);
+					count++;
+				} else {
+					$div.fadeOut(options.speed);
+					$div2.css('background-image', 'url(' + args.images[current] + ')').fadeIn(options.speed);
+					count = 0;
+				}
+			}		
+
+			setInterval(function() {slide();}, options.interval);
+		});
+	}
+
+})(jQuery);
+//]]>
+</script>
+<script>
+		$(function() {
+			$('body').chocolate({
+				images		: ['https://raw.githubusercontent.com/tunganh03/css/master/lowres.jpg', 'https://unsplash.it/1920/1280?image=1040','https://unsplash.it/1920/1280?image=1038'],
+				interval	: 4000,
+				speed		: 2000,
+			});
+		});
+	</script>
+<title>C4K60</title>
+<style id='page-skin-1' type='text/css'><!--
+/*
+-----------------------------------------------
+Template Name  : Ego Cafe
+Author         : NewBloggerThemes.com
+Author URL     : http://newbloggerthemes.com/
+Theme URL      : http://newbloggerthemes.com/ego-cafe-blogger-template/
+Created Date   : Saturday, August 23, 2014
+License        : This template is free for both personal and commercial use, But to satisfy the 'attribution' clause of the license, you are required to keep the footer links intact which provides due credit to its authors.For more information about this license, please use this link :http://creativecommons.org/licenses/by/3.0/
+----------------------------------------------- */
+wrappernbt{
+position: relative;
+width: 200px;
+height: 200px;
+}
+contentabove{
+color: #FFFFFF;
+font-size: 26px;
+font-weight: bold;
+text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
+position: relative;
+z-index: 100;
+}
+mycarousel{
+color: #999999;
+position: absolute;
+top: 0;
+left: 0;
+z-index: -100;
+}
+.btn-group button { margin: 0 7px; }
+.modal-backdrop {
+/* bug fix - no overlay */
+display: none;
+}
+/* Variable definitions
+====================
+*/
+/* Use this with templates/template-twocol.html */
+.section, .widget {margin:0;padding:0;}
+/* Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,dfn,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+html,body{height:100%;
+font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+html, body {
+margin: 0;
+padding: 0;
+width: 100%;
+height: 100%;
+}
+body{
+margin:0;
+padding:0;
+text-align:left;
+background-position: center center;
+background-attachment: fixed;
+background-repeat: repeat;
+background-size: cover;
+box-shadow:inset 0 0 100px rgba(0,0,0,0.5);
+position:relative
+}
+.containerbg {
+width: 800px;
+padding: 27px;
+background-color: rgba(0,0,0,.6);
+border-radius: 10px;
+position: absolute;
+top: 70px;
+left: 48%;
+margin-left: -384px;
+color: #fff;
+}
+#wrappernbt{position:relative;width:100%;margin:auto}
+#headernbt{width:100%;padding:40px 0;margin:auto}
+h1{font-family:'Damion',cursive;font-size:103px;text-align:center;color:#fff;}
+h2{font-family:'Josefin Sans',sans-serif;font-size:30px;letter-spacing:4px;text-align:center;color:#fff;}
+h2 strong.sep-onenbt{width:60px;height:1px;background:#fff;position:absolute;margin-left:-80px;margin-top:15px}
+h2 strong.sep-twonbt{width:60px;height:1px;background:#fff;position:absolute;margin-left:15px;margin-top:15px}
+#middlenbt{width:100%;padding:0px 0;margin:0px 0;text-align:center}
+#middlenbt p{font-size:24px;color:#000;line-height:34px;padding:0 30%;text-align:center}
+#middlenbt p span{color:#e63b4dtext-align:center}
+#footernbt{width:100%;padding:130px 0;margin:130px 0;
+margin-top: 25px;
+margin-right: 0px;
+margin-bottom: 25px;
+margin-left: 0px;
+padding-top: 245px;
+padding-right: 0px;
+padding-bottom: 20px;
+padding-left: 0px;
+}
+@media screen and (max-width: 768px){
+.containerbg {
+text-align:center;
+width: 400px;
+padding: 15px;
+top: 70px;
+left: 96%;
+margin-left: -384px;
+}
+#headernbt{width:100%;padding:5px 0;margin:auto}
+h1{font-size:53px;color:#fff;}
+h2{font-size:15px;letter-spacing:2px;color:#fff;}
+h2 strong.sep-onenbt{width:30px;margin-left:-40px;margin-top:7px}
+h2 strong.sep-twonbt{width:30px;margin-left:10px;margin-top:7px}
+#middlenbt{margin:50px 0 20px;width:100%;padding:5%;text-align:center}
+#middlenbt p{font-size:10px;color:#000;line-height:24px;padding:0;text-align:center;}
+#middlenbt p span{color:#e63b4d}
+}
+h2.date-header{margin:10px 0;display:none}
+.main .widget{margin:0;padding:0}
+#comments{padding:10px;margin-bottom:20px}
+#comments h4{font-size:22px;margin-bottom:10px}
+.deleted-comment{font-style:italic;color:gray}
+#blog-pager-newer-link{float:left}
+#blog-pager-older-link{float:right}
+#blog-pager{text-align:center;padding:5px}
+.feed-links{clear:both}
+#navbar-iframe{height:0;visibility:hidden;display:none}
+.separator a[style="margin-left: 1em; margin-right: 1em;"] {margin-left: auto!important;margin-right: auto!important;}
+.themewidgetsec {display:none;}
+.themewidgetsec .widget {display:none;}
+.copyrightnbt {margin-top:10px;margin-bottom:10px;color:#fff;font-size:14px;text-align:center;}
+.copyrightnbt a {color:#fff;text-decoration:none;}
+.copyrightnbt a:hover {color:#eee;text-decoration:none;}
+/* The Modal (background) */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.h69, h69 {
+font-size: 20px;
+color: #333;
+text-align: left;
+font-weight: bold;
+}
+.h70, h70 {
+font-size: 15px;
+color: #333;
+text-align: left;
+.th, th, .td, td {
+color: #333;
+}
+.h1, h1 {
+color:#fff;
+}
+
+--></style>
+
 </head>
 <body>
-<style>
-button:focus {
-    outline: 0;
-}
-</style>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
-    <div class="container">
-        <a class="navbar-brand" href="#">Brand</a>
-        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-            &#9776;
-        </button>
-        <div class="collapse navbar-collapse" id="exCollapsingNavbar">
-            <ul class="nav navbar-nav">
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Service</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">More</a></li>
-            </ul>
-            <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
-                <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings"><i class="fas fa-cog fa-lg fa-fw"></i></a></li>
-                <li class="dropdown order-1">
-                    <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Login <span class="caret"></span></button>
-                    <ul class="dropdown-menu dropdown-menu-right mt-2">
-                       <li class="px-3 py-2" style="
-    height: 196px;
-    width: 240px;
-">
-                           <form class="form" role="form">
-                                <div class="form-group">
-                                    <input id="emailInput" placeholder="Email" class="form-control form-control-sm" type="text" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input id="passwordInput" placeholder="Password" class="form-control form-control-sm" type="text" required="">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block">Login</button>
-                                </div>
-                                <div class="form-group text-center">
-                                    <small><a href="#" data-toggle="modal" data-target="#modalPassword">Forgot password?</a></small>
-                                </div>
-                            </form>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+<div class='containerbg'>
+<h2><strong class='sep-onenbt'></strong>Cổng thông tin điện tử lớp 10C4<strong class='sep-twonbt'></strong></h2>
+<h2>THPT Chuyên Biên Hoà</h2>
+</div>
+<script type='text/javascript'>
+//<![CDATA[
+var user,m="Nam",fm="Nữ",race_default="Kinh";function pos(f){"1"==f&&(user="Dương Huyền Anh",gender=fm,birth="27/08/2003",bev="Tốt",str="Giỏi",score="8.8",ach="Học sinh giỏi",im="8",ip="9",ic="7",ib="10",ii="10",il="9",ih="9",ig="9",ir="9,10",ice="10",it="9",ide="10",ipe="Đ",ofm="9,10,9",ofp="8,9",ofc="7.5,8,9",ofb="9",ofi="10,8",ofl="8,9,9",ofh="9,8",ofg="8,10",ofr="10,9,9",ofce="10",oft="10,9",ofde="9",ofpe="Đ",ffm="9,10,9",ffp="9,7.5",ffc="8,7,8",ffb="9.5",ffi="9,7",ffl="8,8,8",ffh="9",ffg="9",ffr="9,10,9,9",ffce="10",fft="9.5",ffde="9",ffpe="Đ",cm="10",cp="8.5",cc="9",cb="8.5",ci="7",cl="7.5",ch="8.5",cg="8",cr="9",cce="9",ct="8.5",cde="9",cpe="Đ",om="9.4",op="8.5",oc="8",ob="9.1",oi="8.1",ol="8.1",oh="8.7",og="8.6",or="9.3",oce="9.6",ot="9.1",ode="9.1",ope="Đ"),"2"==f&&(user="Dương Tùng Anh",gender=m,birth="21/11/2003",bev="Tốt",str="Khá",score="8.0",ach="Học sinh tiên tiến",im="7",ip="8",ic="7",ib="9",ii="6",il="7",ih="8",ig="8",ir="9,9",ice="9",it="10",ide="8",ipe="Đ",ofm="7,9,9",ofp="5,10",ofc="8,9.8",ofb="10",ofi="7,8",ofl="8,9,8",ofh="7,8.5",ofg="8,10",ofr="8,8,9",ofce="8",oft="10,8",ofde="9",ofpe="Đ",ffm="7,7,8",ffp="6,7.5",ffc="7,8,8",ffb="10",ffi="7,7",ffl="7,8,7",ffh="9.5",ffg="7",ffr="9,8,8,10",ffce="9",fft="10",ffde="9",ffpe="Đ",cm="5",cp="8",cc="7.5",cb="9",ci="7",cl="7",ch="6",cg="6.5",cr="9",cce="8",ct="8.5",cde="9",cpe="Đ",om="7",op="7.4",oc="7.7",ob="9.4",oi="7",ol="7.5",oh="7.6",og="7.4",or="8.8",oce="8.4",ot="9.2",ode="8.9",ope="Đ"),"3"==f&&(user="Ngô Phương Anh",gender=fm,birth="30/06/2003",bev="Tốt",str="Giỏi",score="8.6",ach="Học sinh giỏi",im="8",ip="9",ic="8",ib="9",ii="10",il="9,8",ih="10",ig="10",ir="10,9",ice="10",it="9",ide="9",ipe="Đ",ofm="9,10,10",ofp="10,9",ofc="7,8,8",ofb="9.5",ofi="5,7",ofl="9,9,9",ofh="8,8.5",ofg="8,10",ofr="9,9,9",ofce="10",oft="9,8",ofde="10",ofpe="Đ",ffm="8,9,9",ffp="9,7.5",ffc="7,8,9",ffb="9.5",ffi="9,8",ffl="8,8,8",ffh="10",ffg="7",ffr="9,9,9,9",ffce="9",fft="9.5",ffde="9",ffpe="Đ",cm="8.5",cp="9",cc="8.5",cb="9",ci="7",cl="6.5",ch="6.5",cg="8",cr="8",cce="9",ct="8.5",cde="10",cpe="Đ",om="8.8",op="8.8",oc="8",ob="9.2",oi="7.7",ol="8",oh="8.3",og="8.3",or="8.9",oce="9.3",ot="8.8",ode="9.6",ope="Đ"),"4"==f&&(user="Nguyễn Đạt Thái Dương",gender=m,birth="12/12/2003",bev="Tốt",str="Giỏi",score="8.5",ach="Học sinh giỏi",im="8",ip="9",ic="8",ib="9",ii="9",il="7",ih="9",ig="9",ir="10,9",ice="9",it="8",ide="9",ipe="Đ",ofm="10,9,10",ofp="7,10",ofc="8,8,9",ofb="10",ofi="9,8",ofl="7,9,7",ofh="7,7.5",ofg="8,10",ofr="9,9,9",ofce="10",oft="10,8",ofde="9",ofpe="Đ",ffm="8,9,9",ffp="7.5,7",ffc="8.5,9,8",ffb="9",ffi="10,6",ffl="6,7,8",ffh="9.5",ffg="8",ffr="9,9,9,9",ffce="7",fft="9",ffde="9",ffpe="Đ",cm="9",cp="8",cc="9",cb="9",ci="7",cl="7.5",ch="6.5",cg="8.5",cr="9.5",cce="8",ct="10",cde="10",cpe="Đ",om="8.9",op="7.9",oc="8.5",ob="9.1",oi="7.9",ol="7.3",oh="7.8",og="8.6",or="9.2",oce="8.1",ot="9.3",ode="9.4",ope="Đ"),"5"==f&&(user="Nguyễn Anh Bảo Hân",gender=fm,birth="11/12/2003",bev="Tốt",str="Giỏi",score="8.2",ach="Học sinh giỏi",im="9",ip="10",ic="8",ib="9",ii="9",il="8",ih="7",ig="9,9",ir="9,10",ice="9",it="9",ide="8",ipe="Đ",ofm="8,9,9",ofp="6,10",ofc="7.5,8,8",ofb="10",ofi="9,5",ofl="9,9,8",ofh="9,8.5",ofg="8,10",ofr="10,8,9",ofce="9",oft="10,9",ofde="9",ofpe="Đ",ffm="8,8,8",ffp="7.5,7.5",ffc="6,8,9",ffb="9.5",ffi="9,7",ffl="8,8,7",ffh="9",ffg="7",ffr="9,9,9,9",ffce="7",fft="9.5",ffde="9",ffpe="Đ",cm="7",cp="8",cc="8",cb="8.5",ci="6",cl="8",ch="7.5",cg="6",cr="8.5",cce="8",ct="8.5",cde="8",cpe="Đ",om="8",op="8",oc="7.8",ob="9.1",oi="7.3",ol="8",oh="8.1",og="7.6",or="9",oce="8",ot="9.1",ode="8.4",ope="Đ"),"6"==f&&(user="Nguyễn Đặng Hải",gender=m,birth="10/12/2003",bev="Tốt",str="Giỏi",score="8.6",ach="Học sinh giỏi",im="9",ip="10",ic="8",ib="9",ii="9",il="8",ih="7",ig="9,9",ir="9,10",ice="9",it="9",ide="8",ipe="Đ",ofm="8,9,9",ofp="6,10",ofc="7.5,8,8",ofb="10",ofi="9,5",ofl="9,9,8",ofh="9,8.5",ofg="8,10",ofr="10,8,9",ofce="9",oft="10,9",ofde="9",ofpe="Đ",ffm="8,8,8",ffp="7.5,7.5",ffc="6,8,9",ffb="9.5",ffi="9,7",ffl="8,8,7",ffh="9",ffg="7",ffr="9,9,9,9",ffce="7",fft="9.5",ffde="9",ffpe="Đ",cm="7",cp="8",cc="8",cb="8.5",ci="6",cl="8",ch="7.5",cg="6",cr="8.5",cce="8",ct="8.5",cde="8",cpe="Đ",om="8",op="8",oc="7.8",ob="9.1",oi="7.3",ol="8",oh="8.1",og="7.6",or="9",oce="8",ot="9.1",ode="8.4",ope="Đ"),"7"==f&&(user="Bùi Thu Hiền",gender=fm,birth="11/10/2003",bev="Tốt",str="Giỏi",score="8.2",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"8"==f&&(user="Nguyễn Thuý Hiền",gender=fm,birth="17/05/2003",bev="Tốt",str="Giỏi",score="8.4",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"9"==f&&(user="Phạm Thu Hiền",gender=fm,birth="29/12/2003",bev="Tốt",str="Giỏi",score="8.3",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"10"==f&&(user="Hồ Trung Hiếu",gender=m,birth="21/01/2003",bev="Tốt",str="Giỏi",score="8.5",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"11"==f&&(user="Trần Thị Diệu Huyền",gender=fm,birth="20/12/2003",bev="Tốt",str="Giỏi",score="8.4",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"12"==f&&(user="Phạm Bảo Sơn Hoa",gender=fm,birth="25/12/2003",bev="Tốt",str="Giỏi",score="8.3",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"13"==f&&(user="Dư Thanh Hoài",gender=fm,birth="13/04/2003",bev="Tốt",str="Giỏi",score="8.4",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"14"==f&&(user="Phạm Thị Thiên Hương",gender=fm,birth="13/11/2003",bev="Tốt",str="Giỏi",score="8.5",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"15"==f&&(user="Lã Kim Huệ",gender=fm,birth="23/12/2003",bev="Tốt",str="Giỏi",score="8.4",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"16"==f&&(user="Nguyễn Quang Huy",gender=m,birth="16/12/2003",bev="Tốt",str="Khá",score="7.8",ach="Học sinh tiên tiến",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"17"==f&&(user="Nguyễn Minh Khôi",gender=m,birth="01/05/2003",bev="Tốt",str="Khá",score="7.6",ach="Học sinh tiên tiến",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"18"==f&&(user="Lê Hoàng Tùng Lâm",gender=m,birth="02/09/2003",bev="Tốt",str="Giỏi",score="8.2",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"19"==f&&(user="Bùi Ngọc Lĩnh",gender=fm,birth="19/01/2003",bev="Tốt",str="Giỏi",score="8.7",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"20"==f&&(user="Lê Kim Liên",gender=fm,birth="18/05/2003",bev="Tốt",str="Giỏi",score="8.6",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"21"==f&&(user="Đinh Thuỳ Linh",gender=fm,birth="25/02/2003",bev="Tốt",str="Giỏi",score="8.7",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"22"==f&&(user="Nguyễn Khánh Linh",gender=fm,birth="13/12/2003",bev="Tốt",str="Giỏi",score="8.6",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"23"==f&&(user="Nguyễn Đức Mạnh",gender=m,birth="09/08/2003",bev="Tốt",str="Giỏi",score="8.3",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"24"==f&&(user="Đỗ Thảo Nguyên",gender=fm,birth="13/04/2003",bev="Tốt",str="Giỏi",score="8.4",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"25"==f&&(user="Đào Thu Phương",gender=fm,birth="06/08/2003",bev="Tốt",str="Giỏi",score="8.5",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"26"==f&&(user="Vũ Minh Quang",gender=m,birth="28/04/2003",bev="Tốt",str="Giỏi",score="8.7",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"27"==f&&(user="Đỗ Hồng Quân",gender=m,birth="08/11/2003",bev="Tốt",str="Khá",score="8.1",ach="Học sinh tiên tiến",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"28"==f&&(user="Đan Thị Phương Thảo",gender=fm,birth="07/10/2003",bev="Tốt",str="Giỏi",score="8.5",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"29"==f&&(user="Dương Phương Thảo",gender=fm,birth="14/12/2003",bev="Tốt",str="Khá",score="8.1",ach="Học sinh tiên tiến",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"30"==f&&(user="Nguyễn Minh Thư",gender=fm,birth="19/08/2003",bev="Tốt",str="Giỏi",score="8.4",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"31"==f&&(user="Vũ Huyền Trang",gender=fm,birth="21/12/2003",bev="Tốt",str="Giỏi",score="8.2",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"32"==f&&(user="Nguyễn Thị Ánh Tuyết",gender=fm,birth="18/04/2003",bev="Tốt",str="Giỏi",score="8.9",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"33"==f&&(user="Trần Khánh Vân",gender=fm,birth="25/11/2003",bev="Tốt",str="Giỏi",score="8.4",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ"),"34"==f&&(user="Hà Gia Văn",gender=m,birth="16/11/2003",bev="Tốt",str="Giỏi",score="8.0",ach="Học sinh giỏi",im="",ip="",ic="",ib="",ii="",il="",ih="",ig="",ir="",ice="",it="",ide="",ipe="Đ",ofm="",ofp="",ofc="",ofb="",ofi="",ofl="",ofh="",ofg="",ofr="",ofce="",oft="",ofde="",ofpe="Đ",ffm="",ffp="",ffc="",ffb="",ffi="",ffl="",ffh="",ffg="",ffr="",ffce="",fft="",ffde="",ffpe="Đ",cm="",cp="",cc="",cb="",ci="",cl="",ch="",cg="",cr="",cce="",ct="",cde="",cpe="Đ",om="",op="",oc="",ob="",oi="",ol="",oh="",og="",or="",oce="",ot="",ode="",ope="Đ")}function show_student_info(f){document.getElementById("student_fullname").innerHTML=user,document.getElementById("student_gender").innerHTML=gender,document.getElementById("student_dob").innerHTML=birth,document.getElementById("student_race").innerHTML=race_default,document.getElementById("student_behaviour").innerHTML=bev,document.getElementById("student_study_strength").innerHTML=str,document.getElementById("student_overall_score").innerHTML=score,document.getElementById("student_achievement").innerHTML=ach,document.getElementById("student_score_inclass_math").innerHTML=im,document.getElementById("student_score_inclass_physic").innerHTML=ip,document.getElementById("student_score_inclass_chemistry").innerHTML=ic,document.getElementById("student_score_inclass_bio").innerHTML=ib,document.getElementById("student_score_inclass_IT").innerHTML=ii,document.getElementById("student_score_inclass_literature").innerHTML=il,document.getElementById("student_score_inclass_history").innerHTML=ih,document.getElementById("student_score_inclass_geography").innerHTML=ig,document.getElementById("student_score_inclass_russian").innerHTML=ir,document.getElementById("student_score_inclass_cilvic_education").innerHTML=ice,document.getElementById("student_score_inclass_technology").innerHTML=it,document.getElementById("student_score_inclass_defense_education").innerHTML=ide,document.getElementById("student_score_inclass_physical_education").innerHTML=ipe,document.getElementById("student_score_15_minutes_math").innerHTML=ofm,document.getElementById("student_score_15_minutes_physic").innerHTML=ofp,document.getElementById("student_score_15_minutes_chemistry").innerHTML=ofc,document.getElementById("student_score_15_minutes_bio").innerHTML=ofb,document.getElementById("student_score_15_minutes_IT").innerHTML=ofi,document.getElementById("student_score_15_minutes_literature").innerHTML=ofl,document.getElementById("student_score_15_minutes_history").innerHTML=ofh,document.getElementById("student_score_15_minutes_geography").innerHTML=ofg,document.getElementById("student_score_15_minutes_russian").innerHTML=ofr,document.getElementById("student_score_15_minutes_cilvic_education").innerHTML=ofce,document.getElementById("student_score_15_minutes_technology").innerHTML=oft,document.getElementById("student_score_15_minutes_defense_education").innerHTML=ofde,document.getElementById("student_score_15_minutes_physical_education").innerHTML=ofpe,document.getElementById("student_score_45_minutes_math").innerHTML=ffm,document.getElementById("student_score_45_minutes_physic").innerHTML=ffp,document.getElementById("student_score_45_minutes_chemistry").innerHTML=ffc,document.getElementById("student_score_45_minutes_bio").innerHTML=ffb,document.getElementById("student_score_45_minutes_IT").innerHTML=ffi,document.getElementById("student_score_45_minutes_literature").innerHTML=ffl,document.getElementById("student_score_45_minutes_history").innerHTML=ffh,document.getElementById("student_score_45_minutes_geography").innerHTML=ffg,document.getElementById("student_score_45_minutes_russian").innerHTML=ffr,document.getElementById("student_score_45_minutes_cilvic_education").innerHTML=ffce,document.getElementById("student_score_45_minutes_technology").innerHTML=fft,document.getElementById("student_score_45_minutes_defense_education").innerHTML=ffde,document.getElementById("student_score_45_minutes_physical_education").innerHTML=ffpe,document.getElementById("student_score_course_math").innerHTML=cm,document.getElementById("student_score_course_physic").innerHTML=cp,document.getElementById("student_score_course_chemistry").innerHTML=cc,document.getElementById("student_score_course_bio").innerHTML=cb,document.getElementById("student_score_course_IT").innerHTML=ci,document.getElementById("student_score_course_literature").innerHTML=cl,document.getElementById("student_score_course_history").innerHTML=ch,document.getElementById("student_score_course_geography").innerHTML=cg,document.getElementById("student_score_course_russian").innerHTML=cr,document.getElementById("student_score_course_cilvic_education").innerHTML=cce,document.getElementById("student_score_course_technology").innerHTML=ct,document.getElementById("student_score_course_defense_education").innerHTML=cde,document.getElementById("student_score_course_physical_education").innerHTML=cpe,document.getElementById("student_score_overall_math").innerHTML=om,document.getElementById("student_score_overall_physic").innerHTML=op,document.getElementById("student_score_overall_chemistry").innerHTML=oc,document.getElementById("student_score_overall_bio").innerHTML=ob,document.getElementById("student_score_overall_IT").innerHTML=oi,document.getElementById("student_score_overall_literature").innerHTML=ol,document.getElementById("student_score_overall_history").innerHTML=oh,document.getElementById("student_score_overall_geography").innerHTML=og,document.getElementById("student_score_overall_russian").innerHTML=or,document.getElementById("student_score_overall_cilvic_education").innerHTML=oce,document.getElementById("student_score_overall_technology").innerHTML=ot,document.getElementById("student_score_overall_defense_education").innerHTML=ode,document.getElementById("student_score_overall_physical_education").innerHTML=ope}
+//]]>
+</script>
+<nav class='navbar navbar-inverse '>
+<div class='container-fluid'>
+<div class='navbar-header'>
+<a class='navbar-brand' href='https://www.c4k60.ga/'>C4K60 - CBH</a>
+<button class='navbar-toggle' data-target='#myNavbar' data-toggle='collapse' type='button'>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+<span class='icon-bar'></span>
+</button>
+</div>
+<div class='collapse navbar-collapse' id='myNavbar'>
+<ul class='nav navbar-nav'>
+<li class='active'><a href='https://www.c4k60.ga/'>Trang chủ</a></li>
+<li><a data-target='#myModal' data-toggle='modal' href='#'>Tra cứu hồ sơ</a></li>
+<li><a href='#'>Page 2</a></li>
+<li><a href='#'>Page 3</a></li>
+</ul>
+<ul class='nav navbar-nav navbar-right'>
+<li><a href='#'><span class='glyphicon glyphicon-user'></span> Đăng ký</a></li>
+<li><a href='#'><span class='glyphicon glyphicon-log-in'></span> Đăng nhập</a></li>
+</ul>
+</div>
+</div>
 </nav>
+<div id='wrappernbt'>
+<div class='contentabove'>
+<div id='headernbt'>
+</div>
+<div id='middlenbt'>
+</div>
+<div id='footernbt'>
+<!-- Modal -->
+<div class='modal fade' id='myModal' role='dialog'>
+<div class='modal-dialog'>
+<!-- Modal content-->
+<div class='modal-content'>
+<div class='modal-header'>
+<button aria-label='Close' class='close' data-dismiss='modal' type='button'>
+<span aria-hidden='true'>&#215;</span>
+</button>
+<h69 class='modal-title'><i class='fas fa-search'></i> Tra cứu hồ sơ thành viên lớp</h69>
+</div>
+<div class='modal-body'>
+<div class='alert alert-warning alert-dismissible'>
+<button class='close' data-dismiss='alert' type='button'>&#215;</button>
+<strong>Chú ý!</strong> Danh sách này chưa đầy đủ và vẫn đang được cập nhật, hoàn thiện.
+</div>
+<div class='container mt-3' style='width:100%'>
+<h70>Nhập tên hoặc số thứ tự để tìm kiếm nhanh trong bảng:</h70>
+<input class='form-control' id='myInput' placeholder='Tìm kiếm...' type='text'/>
+<br>
+<table class='table table-bordered table-striped'>
+<thead>
+<tr>
+<th>STT</th>
+<th>Họ và tên</th>
+<th>Kết quả học tập</th>
+</tr>
+</thead>
+<tbody id='myTable'>
+<tr>
+<td>1</td>
+<td>Dương Huyền Anh</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;1&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dương Tùng Anh</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;2&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Ngô Phương Anh</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;3&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Nguyễn Đạt Thái Dương</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;4&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Nguyễn Anh Bảo Hân</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;5&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Nguyễn Đặng Hải</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;6&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Bùi Thu Hiền</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;7&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Nguyễn Thuý Hiền</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;8&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Phạm Thu Hiền</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;9)' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Hồ Trung Hiếu</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;10&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Trần Thị Diệu Huyền</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;11&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Phạm Bảo Sơn Hoa</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;12&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Dư Thanh Hoài</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;13&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Phạm Thị Thiên Hương</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;14&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Lã Kim Huệ</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;15&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Nguyễn Quang Huy</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;16&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Nguyễn Minh Khôi</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;17&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Lê Hoàng Tùng Lâm</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;18&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Bùi Ngọc Lĩnh</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;19&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Lê Kim Liên</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;20&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Đinh Thuỳ Linh</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;21&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Nguyễn Khánh Linh</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;22&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>23</td>
+<td>Nguyễn Đức Mạnh</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;23&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>24</td>
+<td>Đỗ Thảo Nguyên</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;24&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Đào Thu Phương</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;25&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>26</td>
+<td>Vũ Minh Quang</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;26&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>27</td>
+<td>Đỗ Hồng Quân</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;27&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Đan Thị Phương Thảo</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;28&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Dương Phương Thảo</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;29&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>30</td>
+<td>Nguyễn Minh Thư</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;30&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>31</td>
+<td>Vũ Huyền Trang</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;31&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>32</td>
+<td>Nguyễn Thị Ánh Tuyết</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;32&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>33</td>
+<td>Trần Khánh Vân</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;33&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+<tr>
+<td>34</td>
+<td>Hà Gia Văn</td>
+<td><a href='#'><button class='btn btn-success' data-target='#ScoreModal' data-toggle='modal' onClick='pos(&#39;34&#39;),show_student_info()' type='button'><i class='fas fa-eye'></i> Xem</button></a></td>
+</tr>
+</tbody>
+</table>
+</br>
+</div>
+<div class='alert alert-info'>
+<strong>Thông tin:</strong> Công cụ được phát triển bởi <a class='alert-link' href='https://facebook.com/tunnaduong'>Dương Tùng Anh</a>. Nếu có bất kỳ thắc mắc, vấn đề cần giải quyết please p.m me i will help u :)
+</div>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
 
-<div id="modalPassword" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Forgot password</h3>
-                <button type="button" class="close font-weight-light" data-dismiss="modal" aria-hidden="true">×</button>
-            </div>
-            <div class="modal-body">
-                <p>Reset your password..</p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                <button class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div><div class="carousel-item">
-  <img src="tunganh03.github.io/xungkich-cbh/bienhoa1.jpg" alt="Biên Hoà">
-  <div class="carousel-caption">
-    <h3>Los Angeles</h3>
-    <p>We had such a great time in LA!</p>
-  </div>
+</script>
+</div>
+<div class='modal-footer'>
+<button class='btn btn-default' data-dismiss='modal' type='button'>Đóng</button>
 </div>
 </div>
+</div>
+<div>
+</div>
+</div>
+</div>
+<div class='modal fade' id='ScoreModal' role='dialog'>
+<div class='modal-dialog'>
+<!-- Modal content-->
+<div class='modal-content'>
+<div class='modal-header'>
+<button aria-hidden='true' class='close' data-dismiss='modal' type='button'>&#215;</button>
+<h69 class='modal-title'><i class='fas fa-user-graduate'></i> Hồ sơ học sinh</h69>
+</div>
+<div class='modal-body'>
+<!-- Nav tabs -->
+<ul class='nav nav-tabs'>
+<li class='nav-item active'>
+<a class='nav-link' data-toggle='tab' href='#student_info'>Thông tin học sinh</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' data-toggle='tab' href='#menu1'>Kết quả học tập</a>
+</li>
+</ul>
+<!-- Tab panes -->
+<div class='tab-content'>
+<div class='tab-pane container active' id='student_info' style='width:100%'>
+<table class='table table-borderless'>
+<thead>
+<tr>
+<td>Họ và tên: <span id='student_fullname'></span></td>
+<td>Giới tính: <span id='student_gender'></span></td>
+<td>Dân tộc: <span id='student_race'></span></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ngày sinh: <span id='student_dob'></span></td>
+<td>Năm học: 2018-2019</td>
+<td>Học kỳ: I</td>
+</tr>
+<tr>
+<th>Điểm trung bình: <span id='student_overall_score'></span></th>
+<th>Xếp loại hạnh kiểm: <span id='student_behaviour'></span></th>
+<th>Xếp loại học lực: <span id='student_study_strength'></span></th>
+</tr>
+<tr>
+<th>Danh hiệu: <span id='student_achievement'></span></th>
+<th></th>
+<th></th>
+</tr>
+</tbody>
+</table>
+</div>
+<div class='tab-pane container fade' id='menu1' style='width:100%'>
+<div>
+<div>
+<table class='table table-striped table-bordered'>
+<thead>
+<tr>
+<th rowspan='2'>STT</th>
+<th rowspan='2'>Môn học</th>
+<th colspan='4' style='text-align: center'>Điểm thành phần</th>
+<th rowspan='2'>Điểm TB</th>
+</tr>
+<tr>
+<th>Điểm miệng</th>
+<th>Điểm 15p</th>
+<th>Điểm 45p</th>
+<th>Điểm HK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style='text-align: center'>1</td>
+<td>Toán học</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_math'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_math'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_math'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_math'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_math'></span>
+</td>
+</tr>
+<tr>
+<td style='text-align: center'>2</td>
+<td>Vật Lý</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_physic'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_physic'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_physic'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_physic'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_physic'></span>
+</td>
+</tr><tr>
+<td style='text-align: center'>3</td>
+<td>Hóa Học</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_chemistry'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_chemistry'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_chemistry'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_chemistry'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_chemistry'></span>
+</td>
+</tr><tr>
+<td style='text-align: center'>4</td>
+<td>Sinh học</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_bio'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_bio'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_bio'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_bio'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_bio'></span>
+</td>
+</tr><tr>
+<td style='text-align: center'>5</td>
+<td>Tin học</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_IT'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_IT'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_IT'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_IT'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_IT'></span>
+</td>
+</tr><tr>
+<td style='text-align: center'>6</td>
+<td>Ngữ văn</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_literature'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_literature'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_literature'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_literature'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_literature'></span>
+</td>
+</tr><tr>
+<td style='text-align: center'>7</td>
+<td>Lịch Sử</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_history'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_history'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_history'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_history'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_history'></span>
+</td>
+</tr><tr>
+<td style='text-align: center'>8</td>
+<td>Địa lý</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_geography'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_geography'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_geography'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_geography'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_geography'></span>
+</td>
+</tr><tr>
+<td style='text-align: center'>9</td>
+<td>Tiếng Nga</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_russian'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_russian'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_russian'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_russian'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_russian'></span>
+</td>
+</tr><tr>
+<td style='text-align: center'>10</td>
+<td>GDCD</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_cilvic_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_cilvic_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_cilvic_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_cilvic_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_cilvic_education'></span>
+</td>
+</tr><tr>
+<td style='text-align: center'>11</td>
+<td>Công Nghệ</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_technology'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_technology'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_technology'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_technology'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_technology'></span>
+</td>
+</tr><tr>
+<td style='text-align: center'>12</td>
+<td>GDQP-AN</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_defense_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_defense_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_defense_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_defense_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_defense_education'></span>
+</td>
+</tr><tr>
+<td style='text-align: center'>13</td>
+<td>Thể dục</td>
+<td style='text-align: center'>
+<span id='student_score_inclass_physical_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_15_minutes_physical_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_45_minutes_physical_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_course_physical_education'></span>
+</td>
+<td style='text-align: center'>
+<span id='student_score_overall_physical_education'></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class='modal-footer'>
+<button class='btn btn-default' data-dismiss='modal' type='button'>Đóng</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='no-items section' id='fixelements'></div>
 
-
-
-
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/2136525808-widgets.js"></script>
+<script type='text/javascript'>
+window['__wavt'] = 'AOuZoY4AuX9rsJ2Gp_rRU0ZMTlbMC7eCWw:1571650462951';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d8152930394054794091','//c4k60.blogspot.com/','8152930394054794091');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '8152930394054794091', 'title': 'C4K60', 'url': 'https://c4k60.blogspot.com/', 'canonicalUrl': 'https://c4k60.blogspot.com/', 'homepageUrl': 'https://c4k60.blogspot.com/', 'searchUrl': 'https://c4k60.blogspot.com/search', 'canonicalHomepageUrl': 'https://c4k60.blogspot.com/', 'blogspotFaviconUrl': 'https://c4k60.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'vi', 'localeUnderscoreDelimited': 'vi', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22C4K60 - Atom\x22 href\x3d\x22https://c4k60.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22C4K60 - RSS\x22 href\x3d\x22https://c4k60.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22C4K60 - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/8152930394054794091/posts/default\x22 /\x3e\n', 'meTag': '\x3clink rel\x3d\x22me\x22 href\x3d\x22https://www.blogger.com/profile/02354055521114731558\x22 /\x3e\n', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/f78c150ef2198f1c', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'disableGComments': true, 'sharing': {'platforms': [{'name': 'Nhận liên kết', 'key': 'link', 'shareMessage': 'Nhận liên kết', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Chia sẻ với Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Chia sẻ với Twitter', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Chia sẻ với Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 300, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27vi\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': 'Đọc thêm', 'pageType': 'index', 'pageName': '', 'pageTitle': 'C4K60'}}, {'name': 'features', 'data': {'sharing_get_link_dialog': 'true', 'sharing_native': 'false'}}, {'name': 'messages', 'data': {'edit': 'Chỉnh sửa', 'linkCopiedToClipboard': 'Đã sao chép liên kết vào khay nhớ tạm!', 'ok': 'Ok', 'postLink': 'Liên kết bài đăng'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': 'Tùy chỉnh', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'C4K60', 'description': 'Chuyên Nga THPT Chuyên Biên Hoà', 'url': 'https://c4k60.blogspot.com/', 'type': 'feed', 'isSingleItem': false, 'isMultipleItems': true, 'isError': false, 'isPage': false, 'isPost': false, 'isHomepage': true, 'isArchive': false, 'isLabelSearch': false}}]);
+</script>
 </body>
+</html>
