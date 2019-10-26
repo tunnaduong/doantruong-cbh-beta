@@ -371,7 +371,7 @@ Email</button>
 <li class='{{ page.hdsk }}'><a href='/hoatdong'>Hoạt động/Sự kiện</a></li>
 <li class='{{ page.bc }}'><a href='/baocao'>Báo cáo</a></li>
 <li class='{{ page.lh }}'><a href='/lienhe'>Liên hệ</a></li>
-</ul>
+</ul> 
 <ul class='nav navbar-nav navbar-right flex-row justify-content-between ml-auto'>
 <li class="dropdown order-1">
                     <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle" style="
