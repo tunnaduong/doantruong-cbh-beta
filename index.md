@@ -356,7 +356,7 @@ Email</button>
 <nav class='navbar navbar-inverse '>
 <div class='container-fluid'>
 <div class='navbar-header'>
-<a class='navbar-brand' href='https://tunganh03.github.io/xungkich-cbh/'>Đoàn trường - CBH</a>
+<a class='navbar-brand' href='https://tunganh03.github.io/doantruong-cbh/'>Đoàn trường - CBH</a>
 <button class='navbar-toggle' data-target='#myNavbar' data-toggle='collapse' type='button'>
 <span class='icon-bar'></span>
 <span class='icon-bar'></span>
@@ -365,7 +365,7 @@ Email</button>
 </div>
 <div class='collapse navbar-collapse' id='myNavbar'>
 <ul class='nav navbar-nav'>
-<li class='active'><a href='https://tunganh03.github.io/xungkich-cbh/'>Trang chủ</a></li>
+<li class='active'><a href='https://tunganh03.github.io/doantruong-cbh/'>Trang chủ</a></li>
 <li><a href='#'>Tra cứu</a></li>
 <li><a href='#'>Top vi phạm</a></li>
 <li><a href='#'>Hoạt động/Sự kiện</a></li>
