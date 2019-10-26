@@ -16,32 +16,20 @@ Facebook</button>
     margin-top: 10px;
 " class="btn btn-info" onclick="location.href='mailto:hoaiduong281983@gmail.com';">
    <i class="fas fa-envelope"></i>
-Email</button>
+Email</button><br>
 <big><b>XUNG KÍCH</b></big><br>
 <big><b>NGƯỜI LÀM WEB</b></big><br>
 <p>Dương Tùng Anh - Designer, Developer</p>
-<button type="button" style="
-    padding-top: 6px;
-    margin-top: 10px;
-" class="btn btn-info" onclick="location.href='https://www.facebook.com/tunnaduong/';">
+<button type="button" class="btn btn-info" onclick="location.href='https://www.facebook.com/tunnaduong/';">
    <i class="fab fa-facebook-square"></i>
 Facebook</button>
-<button type="button" style="
-    padding-top: 6px;
-    margin-top: 10px;
-" class="btn btn-info" onclick="location.href='mailto:tunnaduong@gmail.com';">
+<button type="button" class="btn btn-info" onclick="location.href='mailto:tunnaduong@gmail.com';">
    <i class="fas fa-envelope"></i>
 Email</button>
 <p>Hoàng Phát - CEO, Idea, Content Manager</p>
-<button type="button" style="
-    padding-top: 6px;
-    margin-top: 10px;
-" class="btn btn-info" onclick="location.href='https://https://www.facebook.com/hoang.phat.handsome';">
+<button type="button" class="btn btn-info" onclick="location.href='https://https://www.facebook.com/hoang.phat.handsome';">
    <i class="fab fa-facebook-square"></i>
 Facebook</button>
-<button type="button" style="
-    padding-top: 6px;
-    margin-top: 10px;
-" class="btn btn-info" onclick="location.href='mailto:hoangphata1k60@gmail.com';">
+<button type="button" class="btn btn-info" onclick="location.href='mailto:hoangphata1k60@gmail.com';">
    <i class="fas fa-envelope"></i>
 Email</button>
