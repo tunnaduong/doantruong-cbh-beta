@@ -8,7 +8,16 @@ tc: active
 <!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
 <table>
 <thead><tr><th>Khối 12</th><th>Khối 11</th><th>Khối 10</th></tr></thead><tbody>
- <tr><td><a href="#12toan">12 Toán</a></td><td><a href="#11toan">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
+<tr><td><a href="#12toan">12 Toán</a></td><td><a href="#11toan">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
+<tr><td><a href="#12ly">12 Lý</a></td><td><a href="#11ly">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
+<tr><td><a href="#12hoa">12 Hoá</a></td><td><a href="#11hoa">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
+<tr><td><a href="#12sinh">12 Sinh</a></td><td><a href="#11sinh">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
+<tr><td><a href="#12tin">12 Tin</a></td><td><a href="#11tin">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
+<tr><td><a href="#12van">12 Văn</a></td><td><a href="#11van">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
+<tr><td><a href="#12sd">12 Sử-Địa</a></td><td><a href="#11sd">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
+<tr><td><a href="#12anh">12 Anh</a></td><td><a href="#11anh">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
+<tr><td><a href="#12nga">12 Nga</a></td><td><a href="#11nga">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
+</table>
 <!-- 11 Toán -->
 <div id="11toan">
   <h2>11 Toán</h2>
