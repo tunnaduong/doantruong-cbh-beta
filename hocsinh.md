@@ -4,6 +4,7 @@ title: Học sinh
 permalink: /hocsinh/
 tc: active
 ---
+<h1><b>Tra cứu danh sách lớp</b></h1>
 <style type="text/css">
 	table.tableizer-table {
 		font-size: 12px;
