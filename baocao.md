@@ -7,10 +7,10 @@ bc: active
 <h1><b>Báo cáo</b></h1>
 <script type="text/javascript">
   var oktaSignIn = new OktaSignIn({
-    baseUrl: "https://${yourOktaDomain}",
-    clientId: "{clientId}",
+    baseUrl: "https://dev-319762.okta.com",
+    clientId: "0oa1ofr891roL8fys357",
     authParams: {
-      issuer: "https://${yourOktaDomain}/oauth2/default",
+      issuer: "https://dev-319762.okta.com/oauth2/default",
       responseType: ['token', 'id_token'],
       display: 'page'
     }
