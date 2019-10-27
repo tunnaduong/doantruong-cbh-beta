@@ -7,7 +7,6 @@ tc: active
 <h1><b>Tra cứu danh sách lớp</b></h1>
 <!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-...
   <ul class="navbar-nav">
     <li><a href="#11toan">11 Toán</a></li>
     <li><a href="#11ly">11 Lý</a></li>
@@ -15,7 +14,7 @@ tc: active
 
 <!-- 11 Toán -->
 <div id="11toan">
-  <h1>11 Toán</h1>
+  <h2>11 Toán</h2>
   <style type="text/css">
 	table.tableizer-table {
 		font-size: 14px;
@@ -72,7 +71,7 @@ tc: active
 </div>
 <!-- 11 Lý -->
 <div id="11ly">
-  <h1>11 Lý</h1>
+  <h2>11 Lý</h2>
   <style type="text/css">
 	table.tableizer-table {
 		font-size: 14px;
