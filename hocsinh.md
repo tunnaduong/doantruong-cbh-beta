@@ -10,7 +10,7 @@ tc: active
   <ul class="navbar-nav">
     <li><a href="#12toan">12 Toán</a></li><p>				</p><li><a href="#11toan">11 Toán</a></li><p>				</p><li><a href="#10toan">10 Toán</a></li><br>
     <li><a href="#12ly">12 Lý</a></li><p>				</p><li><a href="#11ly">11 Lý</a></li><p>				</p><li><a href="#10ly">10 Lý</a></li><br>
-	<li><a href="#11hoa">11 Hoá</a></li><br>
+	<li><a href="#12hoa">12 Hoá</a></li><p>				</p><li><a href="#11hoa">11 Hoá</a></li><p>				</p><li><a href="#10hoa">10 Hoá</a></li><br>
 	<li><a href="#11sinh">11 Sinh</a></li><br>
 	<li><a href="#11tin">11 Tin</a></li><br>
 	<li><a href="#11van">11 Văn</a></li><br>
