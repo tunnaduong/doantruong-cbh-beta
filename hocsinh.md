@@ -6,7 +6,7 @@ tc: active
 ---
 <h1><b>Tra cứu danh sách lớp</b></h1>
 <!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
-<table>
+<table border="1">
 <thead>
 <tr><th>Khối THPT</th><th></th><th></th><th>Khối THCS</th><th></th><th></th><th></th></tr>
 <tr><th>Khối 12</th><th>Khối 11</th><th>Khối 10</th><th>Khối 9</th><th>Khối 8</th><th>Khối 7</th><th>Khối 6</th></tr>
