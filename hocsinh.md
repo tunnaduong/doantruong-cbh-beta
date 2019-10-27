@@ -16,7 +16,7 @@ tc: active
 	<li><a href="#11van">11 Văn</a></li><br>
 	<li><a href="#11sd">11 Sử-Địa</a></li><br>
 	<li><a href="#11anh">11 Anh</a></li><br>
-	<li><a href="#11anh">11 Nga</a></li><br>
+	<li><a href="#11nga">11 Nga</a></li><br>
 <!-- 11 Toán -->
 <div id="11toan">
   <h2>11 Toán</h2>
