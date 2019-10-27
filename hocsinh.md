@@ -128,7 +128,7 @@ tc: active
  <tr><td>34.Đào Thanh Xuân</td></tr>
 </tbody></table>
   <!-- 12 Hoá -->
-<div id="12 Hoá">
+<div id="12hoa">
   <h2>12 Hoá</h2>
   <style type="text/css">
 	table.tableizer-table {
