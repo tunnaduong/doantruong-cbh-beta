@@ -4,7 +4,7 @@ title: Liên hệ
 permalink: /lienhe/
 lh: active
 ---
-<h1>Liên hệ</h1>
+<h1><b>Liên hệ</b></h1>
 <big><b>ĐOÀN TRƯỜNG</b></big><br>
 <button type="button" style="
     padding-top: 6px;
