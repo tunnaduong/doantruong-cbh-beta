@@ -8,8 +8,8 @@ tc: active
 <!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
   <ul class="navbar-nav">
-    <li><a href="#11toan">11 Toán</a></li>
-    <li><a href="#11ly">11 Lý</a></li>
+    <li><a href="#11toan">11 Toán</a></li><br>
+    <li><a href="#11ly">11 Lý</a></li><br>
 </nav>
 
 <!-- 11 Toán -->
