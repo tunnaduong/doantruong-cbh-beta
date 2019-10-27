@@ -6,17 +6,9 @@ tc: active
 ---
 <h1><b>Tra cứu danh sách lớp</b></h1>
 <!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-  <ul class="navbar-nav">
-    <li><a href="#12toan" style="margin-right: 40px;">12 Toán</a></li><li><a href="#11toan" style="margin-right: 40px;">11 Toán</a></li><li><a href="#10toan" style="margin-right: 40px;">10 Toán</a></li><br>
-    <li><a href="#12ly" style="margin-right: 40px;">12 Lý</a></li><li><a href="#11ly" style="margin-right: 40px;">11 Lý</a></li><li><a href="#10ly" style="margin-right: 40px;">10 Lý</a></li><br>
-	<li><a href="#12hoa" style="margin-right: 40px;">12 Hoá</a></li><li><a href="#11hoa" style="margin-right: 40px;">11 Hoá</a></li><li><a href="#10hoa" style="margin-right: 40px;">10 Hoá</a></li><br>
-	<li><a href="#11sinh">11 Sinh</a></li><br>
-	<li><a href="#11tin">11 Tin</a></li><br>
-	<li><a href="#11van">11 Văn</a></li><br>
-	<li><a href="#11sd">11 Sử-Địa</a></li><br>
-	<li><a href="#11anh">11 Anh</a></li><br>
-	<li><a href="#11nga">11 Nga</a></li><br>
+<table>
+<thead><tr><th>Khối 12</th><th>Khối 11</th><th>Khối 10</th></tr></thead><tbody>
+ <tr><td><a href="#12toan">12 Toán</a></td><td><a href="#11toan">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
 <!-- 11 Toán -->
 <div id="11toan">
   <h2>11 Toán</h2>
