@@ -32,6 +32,13 @@ color:367CE5;
 .socialfooter2:hover {
 color:E9A92A;
 }
+@media screen and (max-width: 768px){
+.container {
+
+    margin-right: 3px;
+    margin-left: 3px;
+
+}
 * {
     box-sizing: border-box;
 }
