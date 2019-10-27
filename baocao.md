@@ -5,6 +5,7 @@ permalink: /baocao/
 bc: active
 ---
 <h1><b>Báo cáo</b></h1>
+<div id="okta-login-container"></div>
 <script type="text/javascript">
   var oktaSignIn = new OktaSignIn({
     baseUrl: "https://dev-319762.okta.com",
@@ -63,6 +64,27 @@ bc: active
       );
     });
   }
+  function callMessagesApi() {
+  var accessToken = oktaSignIn.tokenManager.get("accessToken");
+
+  if (!accessToken) {
+    return;
+  }
+
+  // Make the request using jQuery
+  $.ajax({
+    url: 'http://localhost:{serverPort}/api/messages',
+    headers: {
+      Authorization : 'Bearer ' + accessToken.accessToken
+    },
+    success: function(response) {
+      // Received messages!
+      console.log('Messages', response);
+    },
+    error: function(response) {
+      console.error(response);
+    }
+  });
+}
 </script>
 <p style="color:red">Đăng nhập để tiếp tục!</P>
-<div id="okta-login-container"></div>
