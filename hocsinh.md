@@ -10,7 +10,6 @@ tc: active
   <ul class="navbar-nav">
     <li><a href="#11toan">11 Toán</a></li><br>
     <li><a href="#11ly">11 Lý</a></li><br>
-</nav>
 
 <!-- 11 Toán -->
 <div id="11toan">
