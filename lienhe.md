@@ -28,7 +28,7 @@ Facebook</button>
    <i class="fas fa-envelope"></i>
 Email</button>
 <p>Hoàng Phát - CEO, Idea, Content Manager</p>
-<button type="button" class="btn btn-info" onclick="location.href='https://https://www.facebook.com/hoang.phat.handsome';">
+<button type="button" class="btn btn-info" onclick="location.href='https://www.facebook.com/hoang.phat.handsome';">
    <i class="fab fa-facebook-square"></i>
 Facebook</button>
 <button type="button" class="btn btn-info" onclick="location.href='mailto:hoangphata1k60@gmail.com';">
