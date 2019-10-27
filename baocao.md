@@ -8,10 +8,10 @@ bc: active
 <div id="okta-login-container"></div>
 <script type="text/javascript">
   var oktaSignIn = new OktaSignIn({
-    baseUrl: "https://dev-319762.okta.com",
-    clientId: "0oa1ofr891roL8fys357",
+    baseUrl: "https://dev-982564.okta.com",
+    clientId: "0oa1oi0a1fs3Vk3zc357",
     authParams: {
-      issuer: "https://dev-319762.okta.com/oauth2/default",
+      issuer: "https://dev-982564.okta.com/oauth2/default",
       responseType: ['token', 'id_token'],
       display: 'page'
     }
