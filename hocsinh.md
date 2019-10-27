@@ -11,8 +11,8 @@ tc: active
 <tr><th>Khối THPT</th><th></th><th></th><th>Khối THCS</th><th></th><th></th><th></th></tr>
 <tr><th>Khối 12</th><th>Khối 11</th><th>Khối 10</th><th>Khối 9</th><th>Khối 8</th><th>Khối 7</th><th>Khối 6</th></tr>
 </thead><tbody>
-<tr><td><a href="#12toan">12 Toán</a></td><td><a href="#11toan">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td><td><a href="#10toan">10 Toán</a></td><td><a href="#10toan">10 Toán</a></td><td><a href="#10toan">10 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
-<tr><td><a href="#12ly">12 Lý</a></td><td><a href="#11ly">11 Lý</a></td><td><a href="#10ly">10 Lý</a></td></tr>
+<tr><td><a href="#12toan">12 Toán</a></td><td><a href="#11toan">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td><td><a href="#9a1">9A1</a></td><td><a href="#10toan">10 Toán</a></td><td><a href="#10toan">10 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
+<tr><td><a href="#12ly">12 Lý</a></td><td><a href="#11ly">11 Lý</a></td><td><a href="#10ly">10 Lý</a></td></tr><td><a href="#9a2">9A2</a></td>
 <tr><td><a href="#12hoa">12 Hoá</a></td><td><a href="#11hoa">11 Hoá</a></td><td><a href="#10hoa">10 Hoá</a></td></tr>
 <tr><td><a href="#12sinh">12 Sinh</a></td><td><a href="#11sinh">11 Sinh</a></td><td><a href="#10sinh">10 Sinh</a></td></tr>
 <tr><td><a href="#12tin">12 Tin</a></td><td><a href="#11tin">11 Tin</a></td><td><a href="#10tin">10 Tin</a></td></tr>
@@ -603,4 +603,119 @@ tc: active
  <tr><td>32</td><td>NGUYEN THI ANH TUYET</td></tr>
  <tr><td>33</td><td>HA GIA VAN</td></tr>
  <tr><td>34</td><td>TRAN KHANH VAN</td></tr>
+</tbody></table>
+<!-- THCS -->
+<!-- 9A1 -->
+<div id="9a1">
+  <h2>9A1</h2>
+<style type="text/css">
+	table.tableizer-table {
+		font-size: 14px;
+		border: 1px solid #CCC; 
+		font-family: Arial, Helvetica, sans-serif;
+	} 
+	.tableizer-table td {
+		padding: 4px;
+		margin: 3px;
+		border: 1px solid #CCC;
+	}
+	.tableizer-table th {
+		background-color: #104E8B; 
+		color: #FFF;
+		font-weight: bold;
+	}
+</style>
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th>1. Luu Linh Dan         </th></tr></thead><tbody>
+ <tr><td> 2. Tran Huy Duong        </td></tr>
+ <tr><td>3. Nguyen Quynh Nga</td></tr>
+ <tr><td>4. Nguyen Thanh Thao     </td></tr>
+ <tr><td>5. Hoang Thuy Duong     </td></tr>
+ <tr><td> 6. Tran Thi Thuy Nga</td></tr>
+ <tr><td>7. Trinh Dinh Quang      </td></tr>
+ <tr><td>8. Nguyen Ha Vy          </td></tr>
+ <tr><td>9. Lai Truong Son</td></tr>
+ <tr><td>10.Dinh Viet Hung        </td></tr>
+ <tr><td>11.Vu Manh Dung          </td></tr>
+ <tr><td>12.Trinh Thi Quynh</td></tr>
+ <tr><td>13.Nguyen Le Nhat Anh    </td></tr>
+ <tr><td>14.Trinh Thi Hong Van    </td></tr>
+ <tr><td>15.Do Thuy Linh</td></tr>
+ <tr><td>16.Le Thi Huong Giang    </td></tr>
+ <tr><td>17.Pham Hai Dang          </td></tr>
+ <tr><td>18.Tran Duc Hieu</td></tr>
+ <tr><td>19.Ngo Viet Bach         </td></tr>
+ <tr><td>20.Lai Lan Huong         </td></tr>
+ <tr><td>21.Nguyen Minh Bao</td></tr>
+ <tr><td>22.Nguyen Chi Hieu       </td></tr>
+ <tr><td>23.Mai Vu Thao Nguyen    </td></tr>
+ <tr><td>24.Dinh Thi Thu Hang</td></tr>
+ <tr><td>25.Trieu Thanh Truc      </td></tr>
+ <tr><td>26.Bui Le Thao Chi       </td></tr>
+ <tr><td>27.Phan Vi Bao Linh</td></tr>
+ <tr><td>28.Bui Le Thai Ha        </td></tr>
+ <tr><td>29.Tran Thi Huong Thanh  </td></tr>
+ <tr><td>30.Do Viet Bach</td></tr>
+ <tr><td>31.Bui Nguyen Nhat Minh  </td></tr>
+ <tr><td>32.Pham Phuong Thao      </td></tr>
+ <tr><td>33.Pham Thu Hang</td></tr>
+ <tr><td>34.Do Thao Quyen         </td></tr>
+ <tr><td>35.Pham Thi Huong Giang  </td></tr>
+ <tr><td>36.Le Gia Nguyen</td></tr>
+</tbody></table>
+<!-- 9A2 -->
+<div id="9a2">
+  <h2>9A2</h2>
+<style type="text/css">
+	table.tableizer-table {
+		font-size: 14px;
+		border: 1px solid #CCC; 
+		font-family: Arial, Helvetica, sans-serif;
+	} 
+	.tableizer-table td {
+		padding: 4px;
+		margin: 3px;
+		border: 1px solid #CCC;
+	}
+	.tableizer-table th {
+		background-color: #104E8B; 
+		color: #FFF;
+		font-weight: bold;
+	}
+</style>
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th>1.VU TRUONG AN             </th></tr></thead><tbody>
+ <tr><td>2.NGUYEN QUANG ANH     </td></tr>
+ <tr><td>3.PHUNG DUC ANH</td></tr>
+ <tr><td>4.DA HAI ANH               </td></tr>
+ <tr><td>5.NGUYEN MINH CHAU     </td></tr>
+ <tr><td>6.TRAN LAM NGOC DIEP</td></tr>
+ <tr><td>7.NGUYEN THI THUY DUONG   </td></tr>
+ <tr><td> 8.NGUYEN TRI DUNG     </td></tr>
+ <tr><td>9.VU LE THUY DUONG</td></tr>
+ <tr><td>10.PHAM TRUONG GIANG      </td></tr>
+ <tr><td>11.LAI HOANG HAI        </td></tr>
+ <tr><td>12.NGUYEN TRUNG HIEU</td></tr>
+ <tr><td>13.DO MINH HIEU            </td></tr>
+ <tr><td>14.VU THI HOA         </td></tr>
+ <tr><td>15.LE THU HOAI</td></tr>
+ <tr><td>16.DINH VIET HUNG         </td></tr>
+ <tr><td>17.NGUYEN THU HUONG    </td></tr>
+ <tr><td>18.TRAN THU HUONG</td></tr>
+ <tr><td>19.PHAM LE GIA HUY        </td></tr>
+ <tr><td>20.LE TRONG KIEN       </td></tr>
+ <tr><td>21.LAI THI NGOC LIEN</td></tr>
+ <tr><td>22.HOANG KHANH LINH       </td></tr>
+ <tr><td>23.NGUYEN KHANH LINH  </td></tr>
+ <tr><td> 24.PHAM NGOC LINH</td></tr>
+ <tr><td>25.PHAM MAI LINH          </td></tr>
+ <tr><td>26.PHAM HA MY          </td></tr>
+ <tr><td>27.NGUYEN THI THANH NGA</td></tr>
+ <tr><td>28.NGUYEN YEN NHI         </td></tr>
+ <tr><td>29.DO NGUYEN HA NINH   </td></tr>
+ <tr><td>30.PHAM PHUONG THAO</td></tr>
+ <tr><td>31.TRAN THANH THAO       </td></tr>
+ <tr><td>32.NGUYEN ANH THU       </td></tr>
+ <tr><td>33.HO ANH THU</td></tr>
+ <tr><td>34.PHAM HOANG THU TRANG</td></tr>
 </tbody></table>
