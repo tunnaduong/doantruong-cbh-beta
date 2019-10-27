@@ -11,8 +11,8 @@ tc: active
 <tr><th>Khối THPT</th><th></th><th></th><th>Khối THCS</th><th>           </th><th>           </th><th>          </th></tr>
 <tr><th>Khối 12</th><th>Khối 11</th><th>Khối 10</th><th>Khối 9</th><th>Khối 8</th><th>Khối 7</th><th>Khối 6</th></tr>
 </thead><tbody>
-<tr><td><a href="#12toan">12 Toán</a></td><td><a href="#11toan">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td><td><a href="#9a1">9A1</a></td><td><a href="#8a1">8A1</a></td><td><a href="#10toan">10 Toán</a></td><td><a href="#10toan">10 Toán</a></td></tr>
-<tr><td><a href="#12ly">12 Lý</a></td><td><a href="#11ly">11 Lý</a></td><td><a href="#10ly">10 Lý</a></td><td><a href="#9a2">9A2</a></td><td><a href="#8a2">8A2</a></td></tr>
+<tr><td><a href="#12toan">12 Toán</a></td><td><a href="#11toan">11 Toán</a></td><td><a href="#10toan">10 Toán</a></td><td><a href="#9a1">9A1</a></td><td><a href="#8a1">8A1</a></td><td><a href="#7a1">7A1</a></td><td><a href="#6a1">6A1</a></td></tr>
+<tr><td><a href="#12ly">12 Lý</a></td><td><a href="#11ly">11 Lý</a></td><td><a href="#10ly">10 Lý</a></td><td><a href="#9a2">9A2</a></td><td><a href="#8a2">8A2</a></td><td><a href="#7a2">7A2</a></td><td><a href="#6a2">6A2</a></td></tr>
 <tr><td><a href="#12hoa">12 Hoá</a></td><td><a href="#11hoa">11 Hoá</a></td><td><a href="#10hoa">10 Hoá</a></td></tr>
 <tr><td><a href="#12sinh">12 Sinh</a></td><td><a href="#11sinh">11 Sinh</a></td><td><a href="#10sinh">10 Sinh</a></td></tr>
 <tr><td><a href="#12tin">12 Tin</a></td><td><a href="#11tin">11 Tin</a></td><td><a href="#10tin">10 Tin</a></td></tr>
