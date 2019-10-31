@@ -19,8 +19,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Cổng thông tin điện tử Đoàn trường Chuyên Biên Hoà
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-instagram_username: c4k60
-facebook_group: c4k60
+instagram_username: andreia.duong
+facebook_url: 
 github_username:  tunganh03
 
 # Build settings
